@@ -10,3 +10,20 @@ body,
   margin: 0;
   height: 100%;
 }
+
+.empTitle{
+  text-align: center;
+  text-decoration: underline;
+}
+
+.mainDiv{
+margin-left: 80px;}
+
+.sortButton{
+margin-right: 10px;
+}
+
+.divBtn{
+  text-align: center;
+  margin-right: 50px;
+}
