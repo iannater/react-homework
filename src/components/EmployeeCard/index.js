@@ -1,41 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
-import API from "../../Utils/API";
 
 
 
-class EmployeeCard extends Component {
-    // Setting this.state.employees to the employees json array
-    state = {
-        result: [],
-    };
 
-    componentDidMount() {
-        API.EmployeeSearch()
-            .then(res => this.setState({ result: res.data.results }))
-    }
-
+const EmployeeCard = (props) =>{
     // Map over this.state.employees and render a employeeCard component for each employee object
-    render() {
         return (
-
             <div>
-                {this.state.result.map(info => (
+                {props.employees.map(employee => (
 
                     <div className="card">
                         <div className="img-container">
-                            <img alt={info.first} src={info.picture.large} />
+                            <img alt={employee.first} src={employee.picture.large} />
                         </div>
                         <div className="content">
                             <ul>
                                 <li>
-                                    <strong>Name:</strong> {info.name.first} {info.name.last}
+                                    <strong>Name:</strong> {employee.name.first} {employee.name.last}
                                 </li>
                                 <li>
-                                    <strong>Email:</strong> {info.email}
+                                    <strong>Email:</strong> {employee.email}
                                 </li>
                                 <li>
-                                    <strong>Cell Number:</strong>  {info.cell}
+                                    <strong>Cell Number:</strong>  {employee.cell}
                                 </li>
                             </ul>
                         </div>
@@ -43,7 +31,7 @@ class EmployeeCard extends Component {
                 ))}
             </div>
         );
-    }
+    
 }
 
 export default EmployeeCard;
